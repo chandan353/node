@@ -44,7 +44,7 @@
         </form>
     </section>
     
-    <div>          
+       <div>          
         <h1 align="center">TASKS LIST</h1>
         <form action="todo/delete-task" method="GET">
             <table class="table">
@@ -54,20 +54,24 @@
                         <th>Task</th>
                         <th>Category</th>
                         <th>Due Date</th>
+                        <th>Status</th>
                     </tr>
                 </thead>
                 <% for (let i of task) { %>
                 <tr>
                     <td><input type="checkbox" name="id" value="<%= i._id %>"></td>
-                    <td><p id="task-description"><%= i.description %></td>
-                    <td><p id="task-category"><%= i.category %></p></td>
-                    <td><p id="due-date"><%= i.date %></p></td>
+                    <td><p><%= i.description %></td>
+                    <td><p><%= i.category %></p></td>
+                    <td><p></p><%= i.date %></p></td>
+                    <td><p><%=i.status%></p></td>
                 </tr>
                 <% } %>
             </table>
-            <div align="center"><input type="submit" class="btn btn-danger" value="DELETE TASK"></div>
+            <div align="center"><input type="submit" class="btn btn-danger" name="action" value="DELETE TASK"></div>
+            <div ><input type="submit" class="btn btn-danger" name="action" value="Mark As Completed"></div>
+            
         </form>
-    </div>
+        </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     
